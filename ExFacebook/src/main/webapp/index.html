@@ -34,7 +34,6 @@
 	      version    : "{your version}"           // Use this Graph API version for this call.
 	    });
 
-
     FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
       statusChangeCallback(response);        // Returns the login status.
     });
@@ -61,10 +60,18 @@
       });
       
     
-    
-    
-    
-    FB.ui(
+
+       
+  }
+
+  function logout(){
+	 	 FB.logout(function(response) {
+	 		 console.log('Logged out')
+	 	});
+	  }
+  
+  function postSomething(){
+	  FB.ui(
     		  {
     		    method: 'share',
     		    href: 'https://developers.facebook.com/docs/',
@@ -78,14 +85,8 @@
     		    }
     		  }
     		);
-       
+	  
   }
-
-  function logout(){
-	 	 FB.logout(function(response) {
-	 		 console.log('Logged out')
-	 	});
-	  }
 	 
   
 </script>
@@ -93,6 +94,7 @@
 
 <!-- The JS SDK Login Button -->
 <li><a id ="logout" href="#" onclick="logout()">LogoutfromFacebook</a></li>
+<li><a id ="postSomething" href="#" onclick="postSomething()">Post</a></li>
 
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
